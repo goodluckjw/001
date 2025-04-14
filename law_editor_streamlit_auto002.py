@@ -17,7 +17,9 @@ def get_law_list_from_api(query):
     if res.status_code == 200:
         try:
             root = ET.fromstring(res.content)
-            return [law.findtext("법령상세링크") for law in root.findall("law")]
+            links = [law.findtext("법령상세링크") for law in root.findall("law")]
+            st.write("🔗 추출된 법령상세링크 리스트:", links)  # ✅ 여기 추가
+            return links
         except ET.ParseError:
             return []
     return []
