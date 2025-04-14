@@ -42,7 +42,7 @@ def extract_amendment_sentences(xml_root, law_title, search_word, replace_word):
         title = article.findtext("조문제목") or ""
         content = article.findtext("조문내용") or ""
         if search_word in title:
-            sentence = f"제{number}조{title} 중 "{search_word}"을 "{replace_word}"으로 한다."
+sentence = f"제{number}조{title} 중 \"{search_word}\"을 \"{replace_word}\"으로 한다."
             amendments.append(sentence)
         elif search_word in content:
             sentence = f"제{number}조 중 "{search_word}"을 "{replace_word}"으로 한다."
